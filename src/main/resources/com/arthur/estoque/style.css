@@ -1,0 +1,56 @@
+.root{
+    -fx-font-family: "Gill Sans MT", Arial, sans-serif;
+    -fx-background-color :  #DBB2EB;
+}
+
+.campos-login{
+    -fx-border-color: #310045;
+    -fx-border-radius: 7;
+    -fx-background-radius : 7;
+    -fx-border-width: 2;
+    -fx-text-fill: #4b793f;
+    -fx-prompt-text-fill :  #E1CCE9;
+}
+
+.botao{
+    -fx-background-color : #371545 ;
+    -fx-background-radius :  10;
+    -fx-text-fill: #0C080D;
+}
+
+.botao:hover{
+
+    -fx-scale-x: 1.1;
+    -fx-scale-y: 1.1;
+    -fx-cursor: hand;
+}
+.menu{
+    -fx-background-color : #371545;
+}
+.titulo{
+    -fx-text-fill :  #7a377c;
+    -fx-font-family: "Gill Sans MT";
+    -fx-padding: 10 0 10 10 ;
+}
+
+.botao-menu{
+    -fx-background-color :  transparent;
+}
+
+.botao-menu:hover{
+    -fx-background-color: #E1CCE9 ;
+    -fx-opacity: 1.5;
+    -fx-effect: dropshadow(gaussian, #E1CCE9, 5, 0.5,0,0);
+    -fx-scale-x: 1.1;
+    -fx-scale-y: 1.1;
+
+}
+
+.texto-principal{
+    -fx-text-fill :  #0C080D;
+    -fx-font-family: "Gill Sans MT";
+}
+
+.fundo-estoque{
+    -fx-background-color: #DBB2EB;
+}

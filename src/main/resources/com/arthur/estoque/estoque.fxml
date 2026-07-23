@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+
+<BorderPane prefHeight="450.0" prefWidth="700.0" styleClass="fundo-estoque" stylesheets="@style.css" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.arthur.estoque.EstoqueController">
+   <top>
+      <VBox prefHeight="81.0" prefWidth="700.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label text="Produtos em Estoque">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+            </Label>
+            <HBox alignment="CENTER" prefHeight="44.0" prefWidth="660.0">
+               <children>
+                  <TextField prefHeight="24.0" prefWidth="267.0" promptText="🔍 Pesquise o id ou nome aqui">
+                     <HBox.margin>
+                        <Insets right="20.0" />
+                     </HBox.margin>
+                  </TextField>
+                  <Button mnemonicParsing="false" prefWidth="80.0" text="+Adicionar">
+                     <HBox.margin>
+                        <Insets right="10.0" />
+                     </HBox.margin>
+                  </Button>
+                  <Button layoutX="159.0" layoutY="10.0" mnemonicParsing="false" prefWidth="80.0" text="Editar">
+                     <HBox.margin>
+                        <Insets right="10.0" />
+                     </HBox.margin>
+                  </Button>
+                  <Button layoutX="211.0" layoutY="10.0" mnemonicParsing="false" prefWidth="80.0" text="Remover">
+                     <HBox.margin>
+                        <Insets right="10.0" />
+                     </HBox.margin>
+                  </Button>
+                  <Button fx:id="btnVoltar" layoutX="263.0" layoutY="10.0" mnemonicParsing="false" onAction="#aoSair" prefWidth="80.0" text=" Voltar" />
+               </children>
+            </HBox>
+         </children>
+         <padding>
+            <Insets bottom="10.0" left="30.0" right="30.0" top="20.0" />
+         </padding>
+      </VBox>
+   </top>
+   <center>
+      <TableView prefHeight="351.0" prefWidth="640.0" BorderPane.alignment="CENTER">
+        <columns>
+          <TableColumn prefWidth="75.0" text="ID" />
+          <TableColumn prefWidth="172.0" text="Nome" />
+            <TableColumn prefWidth="159.0" text="Categoria" />
+            <TableColumn prefWidth="141.0" text="Quantidade" />
+            <TableColumn prefWidth="92.0" text="Preço (R$)" />
+        </columns>
+         <BorderPane.margin>
+            <Insets bottom="10.0" left="30.0" right="30.0" />
+         </BorderPane.margin>
+      </TableView>
+   </center>
+</BorderPane>

@@ -6,59 +6,117 @@
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.RadialGradient?>
+<?import javafx.scene.paint.Stop?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 <?import javafx.scene.text.TextFlow?>
 <?import org.kordamp.ikonli.javafx.FontIcon?>
 
-<VBox alignment="CENTER" prefHeight="600.0" prefWidth="500.0" spacing="20.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.arthur.estoque.LoginController">
+<VBox alignment="CENTER" prefHeight="450.0" prefWidth="700.0" spacing="20.0" style="-fx-background-color: #310045; -fx-border-color: #3F536B; -fx-border-width: 2;" styleClass="root" stylesheets="@style.css" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.arthur.estoque.LoginController">
     <padding>
-        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
     </padding>
-   <FontIcon iconLiteral="mdi2a-account-lock-open" iconSize="55" />
+    <FontIcon iconLiteral="mdi2a-account-credit-card-outline" iconSize="50">
+      <fill>
+         <LinearGradient endX="1.0" endY="1.0">
+            <stops>
+               <Stop>
+                  <color>
+                     <Color red="0.43921568989753723" green="0.0941176488995552" blue="0.5529412031173706" />
+                  </color>
+               </Stop>
+               <Stop offset="1.0">
+                  <color>
+                     <Color red="0.43921568989753723" green="0.0941176488995552" blue="0.5529412031173706" />
+                  </color>
+               </Stop>
+            </stops>
+         </LinearGradient>
+      </fill>
+      <iconColor>
+         <LinearGradient endX="1.0" endY="1.0">
+            <stops>
+               <Stop>
+                  <color>
+                     <Color red="0.43921568989753723" green="0.0941176488995552" blue="0.5529412031173706" />
+                  </color>
+               </Stop>
+               <Stop offset="1.0">
+                  <color>
+                     <Color red="0.8905092477798462" green="0.4027777910232544" blue="1.0" />
+                  </color>
+               </Stop>
+            </stops>
+         </LinearGradient>
+      </iconColor></FontIcon>
 
-    <Label fx:id="textoNaTela" text="Acesse Sua Conta">
-      <font>
-         <Font name="System Bold Italic" size="24.0" />
-      </font>
-      <VBox.margin>
-         <Insets bottom="30.0" />
-      </VBox.margin></Label>
-   <TextField fx:id="usuario" prefHeight="30.0" prefWidth="50.0" promptText="Digite seu email ">
-      <VBox.margin>
-         <Insets bottom="25.0" left="50.0" right="50.0" />
-      </VBox.margin>
-   </TextField>
-   <PasswordField fx:id="senha" onAction="#aoApertarBotao" prefHeight="30.0" promptText="Digite sua Senha">
-      <VBox.margin>
-         <Insets bottom="-20.0" left="50.0" right="50.0" />
-      </VBox.margin>
-   </PasswordField>
-   <TextFlow fx:id="erroDados" prefHeight="33.0" prefWidth="360.0" textAlignment="CENTER" visible="false">
-      <VBox.margin>
-         <Insets left="50.0" right="50.0" />
-      </VBox.margin>
-      <children>
-         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Usuário ou senha incorreta! Tente Novamente" textAlignment="CENTER">
-            <font>
-               <Font name="Comic Sans MS Bold Italic" size="13.0" />
-            </font>
-         </Text>
-      </children>
-      <padding>
-         <Insets top="5.0" />
-      </padding>
-   </TextFlow>
-    <Button fx:id="btnAcessar" onAction="#aoApertarBotao" prefHeight="46.0" prefWidth="162.0" style="-fx-background-radius: 50; -fx-border-color: #990bbc; -fx-border-radius: 50;" text="Acessar" textFill="#990bbc">
-      <VBox.margin>
-         <Insets top="35.0" />
-      </VBox.margin></Button>
-   <Label fx:id="recuperaSenha" onMouseClicked="#aoEsquecerSenha" text="Esqueceu sua senha? Recupere aqui!!" textFill="#006eff" underline="true">
-      <font>
-         <Font size="13.0" />
-      </font>
-      <VBox.margin>
-         <Insets />
-      </VBox.margin>
-   </Label>
+    <Label fx:id="textoNaTela" text="Sistema de Estoque">
+        <font>
+            <Font name="Gill Sans MT" size="24.0" />
+        </font>
+        <VBox.margin>
+            <Insets bottom="20.0" />
+        </VBox.margin>
+      <textFill>
+         <RadialGradient centerX="0.5" centerY="0.8459715639810427" radius="0.5">
+            <stops>
+               <Stop>
+                  <color>
+                     <Color red="0.7444444298744202" green="0.3611111044883728" blue="1.0" />
+                  </color>
+               </Stop>
+               <Stop offset="1.0">
+                  <color>
+                     <Color red="1.0" green="1.0" blue="1.0" />
+                  </color>
+               </Stop>
+            </stops>
+         </RadialGradient>
+      </textFill></Label>
+    <TextField fx:id="usuario" prefHeight="44.0" prefWidth="535.0" promptText="Informe seu usuário" styleClass="campos-login">
+        <VBox.margin>
+            <Insets bottom="20.0" left="80.0" right="80.0" />
+        </VBox.margin>
+        <font>
+            <Font name="Gill Sans MT" size="16.0" />
+        </font>
+    </TextField>
+    <PasswordField fx:id="senha" onAction="#aoApertarBotao" prefHeight="44.0" prefWidth="460.0" promptText="Informe sua senha" styleClass="campos-login">
+        <VBox.margin>
+            <Insets bottom="-10.0" left="80.0" right="80.0" />
+        </VBox.margin>
+        <font>
+            <Font name="Gill Sans MT" size="16.0" />
+        </font>
+    </PasswordField>
+    <TextFlow fx:id="erroDados" prefHeight="43.0" prefWidth="360.0" textAlignment="CENTER" translateY="-8.0" visible="false">
+        <VBox.margin>
+            <Insets left="50.0" right="50.0" />
+        </VBox.margin>
+        <children>
+            <Text fill="RED" strokeType="OUTSIDE" strokeWidth="0.0" text="Usuário ou senha Incorretos" textAlignment="CENTER">
+                <font>
+                    <Font name="Comic Sans MS Italic" size="14.0" />
+                </font>
+            </Text>
+        </children>
+    </TextFlow>
+    <Button fx:id="btnAcessar" cache="true" onAction="#aoApertarBotao" prefHeight="44.0" prefWidth="349.0" styleClass="botao" text="Acessar" VBox.vgrow="ALWAYS">
+        <font>
+            <Font name="Gill Sans MT" size="21.0" />
+        </font>
+        <VBox.margin>
+            <Insets top="-40.0" />
+        </VBox.margin></Button>
+    <Label fx:id="recuperaSenha" onMouseClicked="#aoEsquecerSenha" text="Esqueceu sua senha. Recupere aqui!" textFill="#0e53d3" underline="true">
+        <font>
+            <Font name="Gill Sans MT Italic" size="16.0" />
+        </font>
+        <VBox.margin>
+            <Insets />
+        </VBox.margin>
+    </Label>
 </VBox>

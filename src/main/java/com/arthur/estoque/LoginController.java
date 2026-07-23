@@ -5,7 +5,6 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Scene;
-import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.text.TextFlow;
@@ -14,7 +13,6 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 public class LoginController {
-
     @FXML
     private TextField usuario;
 
@@ -27,28 +25,24 @@ public class LoginController {
     private final String usuarioCadastrado = "arthur@gmail.com";
     private final String senhaCadastrada = "82648065";
 
-
     @FXML
     protected void aoApertarBotao(ActionEvent event) throws IOException {
-        if (usuarioCadastrado.equalsIgnoreCase(usuario.getText()) && senhaCadastrada.equals(senha.getText())){
 
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("home.fxml"));
-            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        if ( usuarioCadastrado.equalsIgnoreCase(usuario.getText()) && senhaCadastrada.equals(senha.getText())){
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("menu.fxml"));
             Scene scene = new Scene(loader.load());
+            Stage stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
             stage.setScene(scene);
-            stage.setTitle("Home Page");
+            stage.setTitle("home");
             stage.show();
-
-        }else {
+        } else {
             erroDados.setVisible(true);
-
-
         }
     }
 
     @FXML
-    protected void aoEsquecerSenha(){
-        System.out.println("Que pena");
-
+    protected  void aoEsquecerSenha(){
+        System.out.println(" Você esqueceu! Já não é problema meu.");
     }
+
 }

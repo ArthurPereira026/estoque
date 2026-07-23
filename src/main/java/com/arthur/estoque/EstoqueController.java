@@ -9,18 +9,15 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class HomeController {
+public class EstoqueController {
 
     @FXML
     protected void aoSair(ActionEvent event) throws IOException {
-
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("login.fxml"));
-        Scene scene = new Scene(loader.load());
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("menu.fxml"));
+        Scene scene = new Scene(fxmlLoader.load());
 
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.setScene(scene);
         stage.show();
-
-
     }
 }
