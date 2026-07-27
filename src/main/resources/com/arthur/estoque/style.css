@@ -1,6 +1,6 @@
 .root{
     -fx-font-family: "Gill Sans MT", Arial, sans-serif;
-    -fx-background-color :  #DBB2EB;
+
 }
 
 .campos-login{
@@ -8,8 +8,11 @@
     -fx-border-radius: 7;
     -fx-background-radius : 7;
     -fx-border-width: 2;
-    -fx-text-fill: #4b793f;
+    -fx-text-fill: #E1CCE9;
     -fx-prompt-text-fill :  #E1CCE9;
+}
+.fundo-login{
+    -fx-background-color: linear-gradient( to left, #310045 20%, #84DDFF 80%);
 }
 
 .botao{
@@ -40,7 +43,7 @@
 .botao-menu:hover{
     -fx-background-color: #E1CCE9 ;
     -fx-opacity: 1.5;
-    -fx-effect: dropshadow(gaussian, #E1CCE9, 5, 0.5,0,0);
+    -fx-effect: dropshadow(gaussian, #84DDFF, 5, 0.5,0,0);
     -fx-scale-x: 1.1;
     -fx-scale-y: 1.1;
 
@@ -54,3 +57,14 @@
 .fundo-estoque{
     -fx-background-color: #DBB2EB;
 }
+
+.fundo-bem-vindo{
+    -fx-background-color: #84DDFF;
+
+}
+
+.fundo-produtosC{
+    -fx-background-color: #84DDFF;
+}
+
+

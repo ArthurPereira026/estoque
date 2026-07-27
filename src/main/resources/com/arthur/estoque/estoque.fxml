@@ -12,7 +12,7 @@
 <?import javafx.scene.text.Font?>
 
 
-<BorderPane prefHeight="450.0" prefWidth="700.0" styleClass="fundo-estoque" stylesheets="@style.css" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.arthur.estoque.EstoqueController">
+<BorderPane prefHeight="450.0" prefWidth="700.0" styleClass="fundo-estoque" stylesheets="@style.css" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.arthur.estoque.controller.EstoqueController">
    <top>
       <VBox prefHeight="81.0" prefWidth="700.0" BorderPane.alignment="CENTER">
          <children>
