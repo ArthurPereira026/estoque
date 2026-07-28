@@ -21,7 +21,9 @@ public class MenuController {
     }
 
     @FXML
-    protected void aoRelatorio(){}
+    protected void aoRelatorio(ActionEvent event) throws IOException {
+        GerenciadorTela.getInstancia().TrocarTela(event, "relatorio.fxml", "Sistema Estoque - Relatório");
+    }
 
     @FXML
     protected void aoSair(ActionEvent event) throws IOException {

@@ -23,7 +23,7 @@ public class GerenciadorTela {
 
     public void TrocarTela(ActionEvent event, String caminhoFXML, String Titulo)throws IOException {
 
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(caminhoFXML));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/com/arthur/estoque/"+caminhoFXML));
         Scene scene = new Scene(fxmlLoader.load());
         Stage stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
         stage.setTitle(Titulo);

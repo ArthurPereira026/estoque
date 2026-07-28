@@ -5,9 +5,6 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.VBox?>
-<?import javafx.scene.paint.Color?>
-<?import javafx.scene.paint.LinearGradient?>
-<?import javafx.scene.paint.Stop?>
 <?import javafx.scene.text.Font?>
 <?import org.kordamp.ikonli.javafx.FontIcon?>
 
@@ -15,26 +12,10 @@
    <left>
       <VBox prefHeight="450.0" prefWidth="189.0" styleClass="menu" BorderPane.alignment="CENTER">
          <children>
-            <Label styleClass="titulo" text="Estoque 🍦🍦">
+            <Label styleClass="titulo" text="Estoque" textFill="#d4af37">
                <font>
                   <Font name="Baskerville Old Face" size="20.0" />
                </font>
-               <textFill>
-                  <LinearGradient endX="1.0" endY="1.0" startX="0.33175355450236965">
-                     <stops>
-                        <Stop>
-                           <color>
-                              <Color red="0.7411764860153198" green="0.16862745583057404" blue="0.8274509906768799" />
-                           </color>
-                        </Stop>
-                        <Stop offset="1.0">
-                           <color>
-                              <Color red="0.47843137383461" green="0.21568627655506134" blue="0.48627451062202454" />
-                           </color>
-                        </Stop>
-                     </stops>
-                  </LinearGradient>
-               </textFill>
             </Label>
             <Button fx:id="btnVisualizarEstoque" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#aoVisualizarEstoque" prefHeight="42.0" prefWidth="187.0" text=" Visualizar estoque">
                <styleClass>
@@ -42,23 +23,7 @@
                   <String fx:value="titulo" />
                </styleClass>
                <graphic>
-                  <FontIcon iconLiteral="mdi2a-archive-eye-outline" iconSize="20" text="󱝖">
-                     <iconColor>
-                        <LinearGradient endX="1.0" endY="1.0" startX="0.33175355450236965">
-                           <stops>
-                              <Stop>
-                                 <color>
-                                    <Color red="0.7411764860153198" green="0.16862745583057404" blue="0.8274509906768799" />
-                                 </color>
-                              </Stop>
-                              <Stop offset="1.0">
-                                 <color>
-                                    <Color red="0.47843137383461" green="0.21568627655506134" blue="0.48627451062202454" />
-                                 </color>
-                              </Stop>
-                           </stops>
-                        </LinearGradient>
-                     </iconColor></FontIcon>
+                  <FontIcon iconColor="#d4ac37" iconLiteral="mdi2a-archive-eye-outline" iconSize="20" styleClass="titulo" text="󱝖" />
                </graphic>
             </Button>
             <Button fx:id="bntEntradaProduto" alignment="BASELINE_LEFT" layoutX="18.0" layoutY="58.0" mnemonicParsing="false" onAction="#aoCadastrarProduto" prefHeight="38.0" prefWidth="175.0" text="Entrada de Produtos">
@@ -67,23 +32,7 @@
                   <String fx:value="titulo" />
                </styleClass>
                <graphic>
-                  <FontIcon iconLiteral="mdi2p-package-variant-plus" iconSize="20">
-                     <iconColor>
-                        <LinearGradient endX="1.0" endY="1.0" startX="0.33175355450236965">
-                           <stops>
-                              <Stop>
-                                 <color>
-                                    <Color red="0.7411764860153198" green="0.16862745583057404" blue="0.8274509906768799" />
-                                 </color>
-                              </Stop>
-                              <Stop offset="1.0">
-                                 <color>
-                                    <Color red="0.47843137383461" green="0.21568627655506134" blue="0.48627451062202454" />
-                                 </color>
-                              </Stop>
-                           </stops>
-                        </LinearGradient>
-                     </iconColor></FontIcon>
+                  <FontIcon iconColor="#d4ac37" iconLiteral="mdi2p-package-variant-plus" iconSize="20" />
                </graphic>
             </Button>
             <Button fx:id="btnRelatorio" alignment="BASELINE_LEFT" layoutX="18.0" layoutY="96.0" mnemonicParsing="false" onAction="#aoRelatorio" prefHeight="38.0" prefWidth="175.0" text="Relatório">
@@ -92,23 +41,7 @@
                   <String fx:value="titulo" />
                </styleClass>
                <graphic>
-                  <FontIcon iconLiteral="mdi2b-beaker-check-outline" iconSize="20">
-                     <iconColor>
-                        <LinearGradient endX="1.0" endY="1.0" startX="0.33175355450236965">
-                           <stops>
-                              <Stop>
-                                 <color>
-                                    <Color red="0.7409356832504272" green="0.16885964572429657" blue="0.8289473652839661" />
-                                 </color>
-                              </Stop>
-                              <Stop offset="1.0">
-                                 <color>
-                                    <Color red="0.47843137383461" green="0.21568627655506134" blue="0.48627451062202454" />
-                                 </color>
-                              </Stop>
-                           </stops>
-                        </LinearGradient>
-                     </iconColor></FontIcon>
+                  <FontIcon iconColor="#d4ac37" iconLiteral="mdi2b-beaker-check-outline" iconSize="20" />
                </graphic>
             </Button>
             <Button fx:id="btnSairMenu" alignment="BASELINE_LEFT" layoutX="18.0" layoutY="172.0" mnemonicParsing="false" onAction="#aoSair" prefHeight="38.0" prefWidth="175.0" text="Sair">
@@ -117,30 +50,14 @@
                   <String fx:value="titulo" />
                </styleClass>
                <graphic>
-                  <FontIcon iconLiteral="mdi2l-logout" iconSize="20">
-                     <iconColor>
-                        <LinearGradient endX="1.0" endY="1.0" startX="0.33175355450236965">
-                           <stops>
-                              <Stop>
-                                 <color>
-                                    <Color red="0.7409356832504272" green="0.16885964572429657" blue="0.8289473652839661" />
-                                 </color>
-                              </Stop>
-                              <Stop offset="1.0">
-                                 <color>
-                                    <Color red="0.47843137383461" green="0.21568627655506134" blue="0.48627451062202454" />
-                                 </color>
-                              </Stop>
-                           </stops>
-                        </LinearGradient>
-                     </iconColor></FontIcon>
+                  <FontIcon iconColor="#d4af37" iconLiteral="mdi2l-logout" iconSize="20" />
                </graphic>
             </Button>
          </children>
       </VBox>
    </left>
    <center>
-      <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+      <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" styleClass="fundo-bem-vindo" stylesheets="@style.css" BorderPane.alignment="CENTER">
          <children>
             <Label alignment="CENTER" styleClass="texto-principal" text="Bem-Vindo(a)!" textFill="#4b793f">
                <font>

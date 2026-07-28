@@ -4,34 +4,34 @@
 }
 
 .campos-login{
-    -fx-border-color: #310045;
+    -fx-border-color: #C59423;
     -fx-border-radius: 7;
     -fx-background-radius : 7;
     -fx-border-width: 2;
-    -fx-text-fill: #E1CCE9;
-    -fx-prompt-text-fill :  #E1CCE9;
+    -fx-text-fill: #C59423;
+    -fx-prompt-text-fill :  #063A25;
 }
 .fundo-login{
-    -fx-background-color: linear-gradient( to left, #310045 20%, #84DDFF 80%);
+    -fx-background-color: linear-gradient( to left, #063A25 20%, #556B2F 80%);
 }
 
 .botao{
-    -fx-background-color : #371545 ;
+    -fx-background-color : #D4AF37 ;
     -fx-background-radius :  10;
     -fx-text-fill: #0C080D;
 }
 
 .botao:hover{
 
-    -fx-scale-x: 1.1;
-    -fx-scale-y: 1.1;
+    -fx-scale-x: 1.2;
+    -fx-scale-y: 1.2;
     -fx-cursor: hand;
 }
 .menu{
-    -fx-background-color : #371545;
+    -fx-background-color : #3E451B;
 }
 .titulo{
-    -fx-text-fill :  #7a377c;
+    -fx-text-fill : #D4AF37;
     -fx-font-family: "Gill Sans MT";
     -fx-padding: 10 0 10 10 ;
 }

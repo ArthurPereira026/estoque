@@ -9,8 +9,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="450.0" prefWidth="700.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.arthur.estoque.controller.ProdutoController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="450.0" prefWidth="700.0" styleClass="fundo-produtosC" stylesheets="@style.css" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.arthur.estoque.controller.ProdutoController">
    <top>
       <VBox prefHeight="72.0" prefWidth="650.0" BorderPane.alignment="CENTER">
          <children>
@@ -31,12 +30,12 @@
    <bottom>
       <HBox alignment="CENTER_RIGHT" prefHeight="82.0" prefWidth="560.0" BorderPane.alignment="CENTER_RIGHT">
          <children>
-            <Button mnemonicParsing="false" prefHeight="44.0" prefWidth="125.0" text="Cancelar" onAction="#cancelar">
+            <Button mnemonicParsing="false" onAction="#cancelar" prefHeight="44.0" prefWidth="125.0" text="Cancelar">
                <HBox.margin>
                   <Insets right="15.0" />
                </HBox.margin>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="44.0" prefWidth="125.0" style="-fx-background-color: #800080;" text="Salvar" onAction="#salvar" />
+            <Button mnemonicParsing="false" onAction="#salvar" prefHeight="44.0" prefWidth="125.0" style="-fx-background-color: #800080;" text="Salvar" />
          </children>
          <BorderPane.margin>
             <Insets bottom="20.0" top="20.0" />
