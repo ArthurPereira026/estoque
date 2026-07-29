@@ -30,12 +30,12 @@
    <bottom>
       <HBox alignment="CENTER_RIGHT" prefHeight="82.0" prefWidth="560.0" BorderPane.alignment="CENTER_RIGHT">
          <children>
-            <Button mnemonicParsing="false" onAction="#cancelar" prefHeight="44.0" prefWidth="125.0" text="Cancelar">
+            <Button fx:id="botaoCancelar" mnemonicParsing="false" onAction="#cancelar" prefHeight="44.0" prefWidth="125.0" text="Cancelar">
                <HBox.margin>
                   <Insets right="15.0" />
                </HBox.margin>
             </Button>
-            <Button mnemonicParsing="false" onAction="#salvar" prefHeight="44.0" prefWidth="125.0" style="-fx-background-color: #800080;" text="Salvar" />
+            <Button fx:id="botaoSalvar" mnemonicParsing="false" onAction="#salvar" prefHeight="44.0" prefWidth="125.0" style="-fx-background-color: #800080;" text="Salvar" />
          </children>
          <BorderPane.margin>
             <Insets bottom="20.0" top="20.0" />
@@ -53,7 +53,7 @@
                   <Font size="18.0" />
                </font>
             </Label>
-            <TextField prefHeight="32.0" prefWidth="560.0" />
+            <TextField fx:id="campoNome" prefHeight="32.0" prefWidth="560.0" />
             <VBox prefHeight="57.0" prefWidth="560.0">
                <children>
                   <Label text="Categoria" textFill="PURPLE">
@@ -61,7 +61,7 @@
                         <Font size="18.0" />
                      </font>
                   </Label>
-                  <TextField prefHeight="32.0" prefWidth="560.0" />
+                  <TextField fx:id="campoCategoria" prefHeight="32.0" prefWidth="560.0" />
                </children>
             </VBox>
             <VBox prefHeight="56.0" prefWidth="560.0">
@@ -71,7 +71,7 @@
                         <Font size="18.0" />
                      </font>
                   </Label>
-                  <TextField prefHeight="33.0" prefWidth="560.0" />
+                  <TextField fx:id="campoQuantidade" prefHeight="33.0" prefWidth="560.0" />
                </children>
             </VBox>
             <VBox prefHeight="56.0" prefWidth="560.0">
@@ -81,7 +81,7 @@
                         <Font size="18.0" />
                      </font>
                   </Label>
-                  <TextField prefHeight="32.0" prefWidth="560.0" />
+                  <TextField fx:id="campoPreco" prefHeight="32.0" prefWidth="560.0" />
                </children>
             </VBox>
          </children>
