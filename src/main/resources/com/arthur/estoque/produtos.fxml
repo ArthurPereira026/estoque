@@ -13,7 +13,7 @@
    <top>
       <VBox prefHeight="72.0" prefWidth="650.0" BorderPane.alignment="CENTER">
          <children>
-            <Label styleClass="palavras" text="Dados Produtos" textFill="PURPLE">
+            <Label text="Dados Produtos" textFill="PURPLE">
                <font>
                   <Font name="Arial Black" size="24.0" />
                </font>
@@ -30,15 +30,12 @@
    <bottom>
       <HBox alignment="CENTER_RIGHT" prefHeight="82.0" prefWidth="560.0" BorderPane.alignment="CENTER_RIGHT">
          <children>
-            <Button mnemonicParsing="false" onAction="#cancelar" prefHeight="44.0" prefWidth="125.0" styleClass="botao" text="Cancelar">
+            <Button fx:id="botaoCancelar" mnemonicParsing="false" onAction="#cancelar" prefHeight="44.0" prefWidth="125.0" text="Cancelar">
                <HBox.margin>
                   <Insets right="15.0" />
                </HBox.margin>
             </Button>
-            <Button mnemonicParsing="false" onAction="#salvar" prefHeight="44.0" prefWidth="125.0" style="-fx-background-color: #0A2921;" styleClass="botao" text="Salvar" textFill="#dda959">
-               <font>
-                  <Font size="7.0" />
-               </font></Button>
+            <Button fx:id="botaoSalvar" mnemonicParsing="false" onAction="#salvar" prefHeight="44.0" prefWidth="125.0" style="-fx-background-color: #800080;" text="Salvar" />
          </children>
          <BorderPane.margin>
             <Insets bottom="20.0" top="20.0" />
@@ -51,40 +48,40 @@
             <Insets />
          </BorderPane.margin>
          <children>
-            <Label styleClass="palavras" text="Nome" textFill="PURPLE">
+            <Label text="Nome" textFill="PURPLE">
                <font>
                   <Font size="18.0" />
                </font>
             </Label>
-            <TextField prefHeight="32.0" prefWidth="560.0" styleClass="campos-login" />
+            <TextField fx:id="campoNome" prefHeight="32.0" prefWidth="560.0" />
             <VBox prefHeight="57.0" prefWidth="560.0">
                <children>
-                  <Label styleClass="palavras" text="Categoria" textFill="PURPLE">
+                  <Label text="Categoria" textFill="PURPLE">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Label>
-                  <TextField prefHeight="32.0" prefWidth="560.0" styleClass="campos-login" />
+                  <TextField fx:id="campoCategoria" prefHeight="32.0" prefWidth="560.0" />
                </children>
             </VBox>
             <VBox prefHeight="56.0" prefWidth="560.0">
                <children>
-                  <Label styleClass="palavras" text="Quantiadade" textFill="PURPLE">
+                  <Label text="Quantiadade" textFill="PURPLE">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Label>
-                  <TextField prefHeight="33.0" prefWidth="560.0" styleClass="campos-login" />
+                  <TextField fx:id="campoQuantidade" prefHeight="33.0" prefWidth="560.0" />
                </children>
             </VBox>
             <VBox prefHeight="56.0" prefWidth="560.0">
                <children>
-                  <Label styleClass="palavras" text="Preço" textFill="PURPLE">
+                  <Label text="Preço" textFill="PURPLE">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Label>
-                  <TextField prefHeight="32.0" prefWidth="560.0" styleClass="campos-login" />
+                  <TextField fx:id="campoPreco" prefHeight="32.0" prefWidth="560.0" />
                </children>
             </VBox>
          </children>
