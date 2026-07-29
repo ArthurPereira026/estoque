@@ -2,6 +2,11 @@
     -fx-font-family: "Gill Sans MT", Arial, sans-serif;
 
 }
+/*Tela Login*/
+
+.fundo-login{
+    -fx-background-color: linear-gradient( to left, #063A25 20%, #556B2F 80%);
+}
 
 .campos-login{
     -fx-border-color: #C59423;
@@ -11,60 +16,73 @@
     -fx-text-fill: #C59423;
     -fx-prompt-text-fill :  #063A25;
 }
-.fundo-login{
-    -fx-background-color: linear-gradient( to left, #063A25 20%, #556B2F 80%);
-}
 
-.botao{
+.botao-login{
     -fx-background-color : #D4AF37 ;
     -fx-background-radius :  10;
     -fx-text-fill: #0C080D;
 }
 
+/*hover ==  passar o mouse por cima*/
 .botao:hover{
 
     -fx-scale-x: 1.2;
     -fx-scale-y: 1.2;
     -fx-cursor: hand;
 }
-.menu{
-    -fx-background-color : #3E451B;
+
+/*Tela Menu*/
+
+.menu-opcoes{
+    -fx-background-color: linear-gradient( to bottom, #DDA959 20%, #556B2F 70%);
 }
+
+.fundo-bem-vindo{
+    -fx-background-color: linear-gradient( to bottom, #063A25 20%, #556B2F 80%);
+}
+
+
 .titulo{
     -fx-text-fill : #D4AF37;
     -fx-font-family: "Gill Sans MT";
     -fx-padding: 10 0 10 10 ;
 }
 
+.texto-principal{
+     -fx-text-fill :  #0C080D;
+     -fx-font-family: "Gill Sans MT";
+ }
+
 .botao-menu{
     -fx-background-color :  transparent;
 }
 
 .botao-menu:hover{
-    -fx-background-color: #E1CCE9 ;
+    -fx-background-color: #C79A3A ;
     -fx-opacity: 1.5;
-    -fx-effect: dropshadow(gaussian, #84DDFF, 5, 0.5,0,0);
+    -fx-effect: dropshadow(gaussian, #0B3A2E, 5, 0.5,0,0);
     -fx-scale-x: 1.1;
     -fx-scale-y: 1.1;
 
 }
 
-.texto-principal{
-    -fx-text-fill :  #0C080D;
-    -fx-font-family: "Gill Sans MT";
-}
+
+/*Tela Estoque*/
 
 .fundo-estoque{
     -fx-background-color: #DBB2EB;
 }
 
-.fundo-bem-vindo{
-    -fx-background-color: #84DDFF;
-
-}
+/*Tela Cadastro de  Produtos*/
 
 .fundo-produtosC{
-    -fx-background-color: #84DDFF;
+    -fx-background-color: #F5E6CB;
 }
 
+.palavras{
+    -fx-text-fill: #DDA959;
+}
+
+
+/*Tela Relatório*/
 

@@ -1,74 +1,92 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import java.lang.String?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.Glow?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 <?import org.kordamp.ikonli.javafx.FontIcon?>
 
-<BorderPane prefHeight="450.0" prefWidth="700.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.arthur.estoque.controller.MenuController">
+<BorderPane prefHeight="450.0" prefWidth="700.0" style="-fx-background-radius: 0; -fx-background-color: #0B3A2E;" stylesheets="@style.css" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.arthur.estoque.controller.MenuController">
    <left>
-      <VBox prefHeight="450.0" prefWidth="189.0" styleClass="menu" BorderPane.alignment="CENTER">
+      <VBox prefHeight="450.0" prefWidth="189.0" style="-fx-background-radius: 0;" styleClass="menu-opcoes" BorderPane.alignment="CENTER">
          <children>
-            <Label styleClass="titulo" text="Estoque" textFill="#d4af37">
+            <Label styleClass="texto-principal" text="Estoque" textFill="#d4af37">
                <font>
                   <Font name="Baskerville Old Face" size="20.0" />
                </font>
+               <graphic>
+                  <FontIcon iconLiteral="mdi2p-package-variant-closed" iconSize="25" />
+               </graphic>
+               <VBox.margin>
+                  <Insets bottom="20.0" />
+               </VBox.margin>
             </Label>
             <Button fx:id="btnVisualizarEstoque" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#aoVisualizarEstoque" prefHeight="42.0" prefWidth="187.0" text=" Visualizar estoque">
                <styleClass>
                   <String fx:value="botao-menu" />
-                  <String fx:value="titulo" />
+                  <String fx:value="texto-principal" />
                </styleClass>
                <graphic>
-                  <FontIcon iconColor="#d4ac37" iconLiteral="mdi2a-archive-eye-outline" iconSize="20" styleClass="titulo" text="󱝖" />
+                  <FontIcon iconLiteral="mdi2a-archive-eye-outline" iconSize="25" styleClass="texto-principal" text="󱝖" />
                </graphic>
             </Button>
             <Button fx:id="bntEntradaProduto" alignment="BASELINE_LEFT" layoutX="18.0" layoutY="58.0" mnemonicParsing="false" onAction="#aoCadastrarProduto" prefHeight="38.0" prefWidth="175.0" text="Entrada de Produtos">
                <styleClass>
                   <String fx:value="botao-menu" />
-                  <String fx:value="titulo" />
+                  <String fx:value="texto-principal" />
                </styleClass>
                <graphic>
-                  <FontIcon iconColor="#d4ac37" iconLiteral="mdi2p-package-variant-plus" iconSize="20" />
+                  <FontIcon iconLiteral="mdi2p-package-variant-plus" iconSize="25" />
                </graphic>
             </Button>
             <Button fx:id="btnRelatorio" alignment="BASELINE_LEFT" layoutX="18.0" layoutY="96.0" mnemonicParsing="false" onAction="#aoRelatorio" prefHeight="38.0" prefWidth="175.0" text="Relatório">
                <styleClass>
                   <String fx:value="botao-menu" />
-                  <String fx:value="titulo" />
+                  <String fx:value="texto-principal" />
                </styleClass>
                <graphic>
-                  <FontIcon iconColor="#d4ac37" iconLiteral="mdi2b-beaker-check-outline" iconSize="20" />
+                  <FontIcon iconLiteral="mdi2b-beaker-check-outline" iconSize="25" />
                </graphic>
             </Button>
             <Button fx:id="btnSairMenu" alignment="BASELINE_LEFT" layoutX="18.0" layoutY="172.0" mnemonicParsing="false" onAction="#aoSair" prefHeight="38.0" prefWidth="175.0" text="Sair">
                <styleClass>
                   <String fx:value="botao-menu" />
-                  <String fx:value="titulo" />
+                  <String fx:value="texto-principal" />
                </styleClass>
                <graphic>
-                  <FontIcon iconColor="#d4af37" iconLiteral="mdi2l-logout" iconSize="20" />
+                  <FontIcon iconLiteral="mdi2l-logout" iconSize="25" />
                </graphic>
             </Button>
          </children>
+         <padding>
+            <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+         </padding>
       </VBox>
    </left>
    <center>
-      <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" styleClass="fundo-bem-vindo" stylesheets="@style.css" BorderPane.alignment="CENTER">
+      <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" style="-fx-background-radius: 0;" styleClass="fundo-bem-vindo" stylesheets="@style.css" BorderPane.alignment="CENTER">
          <children>
-            <Label alignment="CENTER" styleClass="texto-principal" text="Bem-Vindo(a)!" textFill="#4b793f">
+            <Label alignment="CENTER" styleClass="titulo" text="Bem-Vindo(a)!" textFill="#4b793f">
                <font>
                   <Font name="Baskerville Old Face" size="20.0" />
                </font>
             </Label>
-            <Label alignment="CENTER" layoutX="207.0" layoutY="223.0" styleClass="texto-principal" text="Selecione uma opcao no menu ao lado." textFill="#4c7840aa">
+            <Label alignment="CENTER" layoutX="207.0" layoutY="223.0" styleClass="titulo" text="Selecione uma opcao no menu ao lado." textFill="#4c7840aa">
                <font>
                   <Font name="Baskerville Old Face" size="13.0" />
                </font>
             </Label>
          </children></VBox>
    </center>
+   <effect>
+      <Glow level="0.65" />
+   </effect>
+   <cursor>
+      <Cursor fx:constant="N_RESIZE" />
+   </cursor>
 </BorderPane>
