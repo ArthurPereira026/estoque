@@ -70,11 +70,11 @@ public class ProdutoController {
             produtoEmEdicao.setCategoria(categoria);
             produtoEmEdicao.setQuantidade(quantidade);
             produtoEmEdicao.setPreco(preco);
-            mostrarSucesso(event, "Produto editado com sucesso!" +
-                    "");
+            mostrarSucesso(event, "Produto editado com sucesso!"
+            );
         }
 
-        System.out.println(dadosEstoque.listarProdutos());
+
     }
 
     private void mostrarErro(String mensagem) {

@@ -26,7 +26,7 @@ public class EstoqueDAO {
     }
 
     public void adicionar(Produto produto){
-        produto.setId(idproduto+1);/*pode ser idproduto++ ou idproduto+1 os dois são a mesma coisa*/
+        produto.setId(idproduto++);/*pode ser idproduto++ ou idproduto+1 os dois são a mesma coisa*/
         listaProdutos.add(produto);
     }
 
