@@ -11,12 +11,11 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
 <BorderPane prefHeight="450.0" prefWidth="700.0" styleClass="fundo-estoque" stylesheets="@style.css" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.arthur.estoque.controller.EstoqueController">
    <top>
       <VBox prefHeight="81.0" prefWidth="700.0" BorderPane.alignment="CENTER">
          <children>
-            <Label text="Produtos em Estoque">
+            <Label text="Produtos em Estoque" textFill="#f3c37a">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font>
