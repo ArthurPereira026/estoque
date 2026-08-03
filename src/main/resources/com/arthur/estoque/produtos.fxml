@@ -31,12 +31,12 @@
    <bottom>
       <HBox alignment="CENTER_RIGHT" prefHeight="82.0" prefWidth="560.0" BorderPane.alignment="CENTER_RIGHT">
          <children>
-            <Button fx:id="botaoCancelar" mnemonicParsing="false" onAction="#cancelar" prefHeight="44.0" prefWidth="125.0" styleClass="botoes-produtos" text="Cancelar">
+            <Button fx:id="botaoCancelar" mnemonicParsing="false" onAction="#cancelar" minHeight="44.0" minWidth="125.0" styleClass="botoes-produtos" text="Cancelar" HBox.hgrow="ALWAYS">
                <HBox.margin>
                   <Insets right="15.0" />
                </HBox.margin>
             </Button>
-            <Button fx:id="botaoSalvar" mnemonicParsing="false" onAction="#salvar" prefHeight="44.0" prefWidth="125.0" stylesheets="@style.css" text="Salvar">
+            <Button fx:id="botaoSalvar" mnemonicParsing="false" onAction="#salvar" minHeight="44.0" minWidth="125.0" stylesheets="@style.css" text="Salvar" HBox.hgrow="ALWAYS">
                <styleClass>
                   <String fx:value="botao-salvar-produtos" />
                   <String fx:value="botoes-produtos" />

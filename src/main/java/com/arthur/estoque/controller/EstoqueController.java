@@ -6,9 +6,7 @@ import com.arthur.estoque.util.GerenciadorTela;
 import javafx.collections.transformation.FilteredList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 
 import java.io.IOException;
@@ -63,13 +61,51 @@ public class EstoqueController {
     }
 
     @FXML
-    protected void adicionarProduto(){}
+    protected void adicionarProduto(ActionEvent event) throws IOException {
+        GerenciadorTela.getInstancia().TrocarTela(event, "produtos.fxml","Sistema Estoque - Produto");
+    }
 
     @FXML
-    protected void removerProduto(){}
+    protected void editarProduto(ActionEvent event)throws IOException{
+        Produto produtoSelecionado =  (Produto) tabelaProdutos.getSelectionModel().getSelectedItem();
+        if (produtoSelecionado  == null){
+            mostrarAlerta("Selecione um produto para editar!!");
+            return;
+        }
+        GerenciadorTela.getInstancia().telaEdicao(event, "produtos.fxml", "Sistema Estoque - Editar Produtos", (ProdutoController controller) -> controller.preencherParaEdicao(produtoSelecionado));
+
+    }
+
+    public void mostrarAlerta ( String mensagem){
+        Alert alert = new Alert(Alert.AlertType.INFORMATION, mensagem);
+        alert.setHeaderText(null);
+        alert.showAndWait();
+
+
+    }
+
 
     @FXML
-    protected void editarProduto(){}
+    protected void removerProduto(){
+
+        Produto produtoSelecionado =  (Produto) tabelaProdutos.getSelectionModel().getSelectedItem();
+        if (produtoSelecionado == null){
+            mostrarAlerta("Selecione um produto do estoque para poder remover");
+            return;
+        }
+        Alert confirmacao = new Alert(Alert.AlertType.CONFIRMATION, "Remover o produto " +produtoSelecionado.getNome()+ " do estoque?? Esse ação ira excluir o produto  permanentemente do estoque atual!!");
+        confirmacao.setHeaderText(null);
+        ButtonType btnSim = new ButtonType("yes");
+        ButtonType btnNao = new ButtonType("Não");
+        confirmacao.getButtonTypes().setAll( btnSim, btnNao);
+        confirmacao.showAndWait().ifPresent(botao ->{
+            if (botao ==  btnSim){
+                dadosEstoque.remover(produtoSelecionado);
+            }
+        });
+
+
+    }
 
     @FXML
     protected void aoSair(ActionEvent event) throws IOException {
