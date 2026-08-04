@@ -10,6 +10,8 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 
 import java.io.IOException;
+import java.text.NumberFormat;
+import java.util.Locale;
 
 public class EstoqueController {
 
@@ -42,11 +44,14 @@ public class EstoqueController {
     @FXML
     public void initialize(){
 
+        NumberFormat formatoMoeda = NumberFormat.getCurrencyInstance(new Locale("pt","BR"));
+
         colunaID.setCellValueFactory(new PropertyValueFactory<>("id"));
         colunaNome.setCellValueFactory(new PropertyValueFactory<>("nome"));
         colunaCategoria.setCellValueFactory(new PropertyValueFactory<>("categoria"));
         colunaQuantidade.setCellValueFactory(new PropertyValueFactory<>("quantidade"));
         colunaPreco.setCellValueFactory(new PropertyValueFactory<>("preco"));
+
 
         listaFiltrada = new FilteredList<>( dadosEstoque.listarProdutos(), p -> true);
         tabelaProdutos.setItems(listaFiltrada);

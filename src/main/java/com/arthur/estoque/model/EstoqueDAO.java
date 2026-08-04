@@ -1,19 +1,17 @@
 package com.arthur.estoque.model;
 
-import javafx.beans.Observable;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.fxml.FXML;
 
 public class EstoqueDAO {
 
     private static EstoqueDAO instancia;
-    private final ObservableList<Produto> listaProdutos;
+    private final ObservableList<Produto> produtosList;
     private int idproduto = 1;
 
 
     private EstoqueDAO(){
-        this.listaProdutos = FXCollections.observableArrayList();
+        this.produtosList = FXCollections.observableArrayList();
     }
 
 
@@ -26,16 +24,25 @@ public class EstoqueDAO {
     }
 
     public void adicionar(Produto produto){
-        produto.setId(idproduto++);/*pode ser idproduto++ ou idproduto+1 os dois são a mesma coisa*/
-        listaProdutos.add(produto);
+        produto.setId(idproduto++);/*pode ser idproduto++ pra adicionar +1*/
+        produtosList.add(produto);
     }
 
     public ObservableList<Produto> listarProdutos(){
-        return listaProdutos;
+        return produtosList;
     }
 
     public void remover(Produto produto){
-        listaProdutos.remove(produto);
+        produtosList.remove(produto);
+    }
+
+    public double calcularValorTotalEstoque(){
+        double valorTotalEstoque = produtosList.stream().mapToDouble(Produto::getValorTotal).sum();
+        return valorTotalEstoque;
+    }
+
+    public long calcularQuantidadeEstoqueBaixo(int limite){
+        return produtosList.stream().filter(p -> p.getQuantidade() < limite).count();
     }
 
 

@@ -18,7 +18,7 @@
          <children>
             <VBox alignment="CENTER" prefHeight="189.0" prefWidth="151.0" style="-fx-background-color: #84DDFF; -fx-background-radius: 50;" HBox.hgrow="ALWAYS">
                <children>
-                  <Label text="0">
+                  <Label fx:id="lblTotalProdutos" text="0">
                      <font>
                         <Font name="System Bold" size="46.0" />
                      </font>
@@ -35,7 +35,7 @@
             </VBox>
             <VBox alignment="CENTER" layoutX="20.0" layoutY="20.0" prefHeight="189.0" prefWidth="259.0" style="-fx-background-color: #84DDFF; -fx-background-radius: 50;" HBox.hgrow="ALWAYS">
                <children>
-                  <Label text="0">
+                  <Label fx:id="lblValorTotal" text="0">
                      <font>
                         <Font name="System Bold" size="46.0" />
                      </font>
@@ -52,7 +52,7 @@
             </VBox>
             <VBox alignment="CENTER" layoutX="171.0" layoutY="20.0" prefHeight="189.0" prefWidth="151.0" style="-fx-background-color: #84DDFF; -fx-background-radius: 50;" HBox.hgrow="ALWAYS">
                <children>
-                  <Label text="0">
+                  <Label fx:id="lblEstoqueBaixo" text="0">
                      <font>
                         <Font name="System Bold" size="46.0" />
                      </font>
