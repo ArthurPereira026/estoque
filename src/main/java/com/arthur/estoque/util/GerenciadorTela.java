@@ -1,6 +1,7 @@
 package com.arthur.estoque.util;
 
 import javafx.event.ActionEvent;
+import javafx.event.Event;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
@@ -23,7 +24,7 @@ public class GerenciadorTela {
         return instancia;
     }
 
-    public void TrocarTela(ActionEvent event, String caminhoFXML, String Titulo)throws IOException {
+    public void TrocarTela(Event event, String caminhoFXML, String Titulo)throws IOException {
 
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/com/arthur/estoque/"+caminhoFXML));
         Scene scene = new Scene(fxmlLoader.load());
@@ -50,5 +51,7 @@ public class GerenciadorTela {
         stage.show();
         return controller;
     }
+
+
 
 }

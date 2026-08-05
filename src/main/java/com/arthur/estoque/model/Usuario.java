@@ -1,15 +1,13 @@
 package com.arthur.estoque.model;
 
-import javafx.scene.control.ButtonType;
-
-public class Usuarios {
+public class Usuario {
 
     private String email;
     private String senha;
 
-    public Usuarios(){}
+    public Usuario(){}
 
-    public Usuarios(String email, String senha) {
+    public Usuario(String email, String senha) {
         this.email = email;
         this.senha = senha;
     }
