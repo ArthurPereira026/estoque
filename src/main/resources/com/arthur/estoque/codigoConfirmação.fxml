@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox alignment="CENTER" prefHeight="300.0" prefWidth="400.0" style="-fx-border-radius: 20;" styleClass="fundo-login" stylesheets="@style.css" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.arthur.estoque.controller.SenhaController">
+   <children>
+      <Label styleClass="titulo-campos-Recuperar-senha" text="Recuperação de Senha" textAlignment="CENTER">
+         <VBox.margin>
+            <Insets bottom="10.0" />
+         </VBox.margin>
+         <font>
+            <Font name="Bookman Old Style" size="20.0" />
+         </font></Label>
+      <Label fx:id="codigoRecebido" opacity="0.0" text="00000" />
+      <Label prefHeight="44.0" prefWidth="312.0" styleClass="palavras" text="Informe o codigo de verificação recebido em seu email" wrapText="true" />
+      <TextField fx:id="codigoConfirmacao" alignment="CENTER" prefHeight="26.0" prefWidth="328.0" promptText="00000" styleClass="campos-login">
+         <VBox.margin>
+            <Insets left="150.0" right="150.0" top="15.0" />
+         </VBox.margin>
+      </TextField>
+      <Label fx:id="codigoIncorreto" prefHeight="34.0" prefWidth="277.0" styleClass="palavras" text="Email não cadastrado! Tente Novamente!" visible="false" wrapText="true">
+         <VBox.margin>
+            <Insets top="10.0" />
+         </VBox.margin>
+      </Label>
+      <Button fx:id="btnCodigoConfirmacao" mnemonicParsing="false" onAction="#aoCodigoCorreto" prefHeight="25.0" prefWidth="100.0" styleClass="botao-login" text="Enviar">
+         <VBox.margin>
+            <Insets top="10.0" />
+         </VBox.margin>
+      </Button>
+   </children>
+</VBox>

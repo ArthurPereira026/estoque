@@ -77,7 +77,7 @@
                   <Font name="Gill Sans MT" size="16.0" />
               </font>
           </TextField>
-         <Label fx:id="emailInvalido" onMouseClicked="#aoAcessarLogin" text="É necessario um email valido para continuar" textFill="#ffe100" visible="false">
+         <Label fx:id="emailInvalido" onMouseClicked="#aoAcessarLogin" text="É necessario um email valido para continuar" textFill="RED" visible="false">
             <font>
                <Font name="Gill Sans MT Italic" size="16.0" />
             </font>
@@ -92,7 +92,7 @@
    </VBox>
    <VBox prefHeight="68.0" prefWidth="670.0">
       <children>
-         <PasswordField fx:id="confirmaSenha" prefHeight="44.0" prefWidth="535.0" promptText="Informe sua Senha" styleClass="campos-login">
+         <PasswordField fx:id="senhaCadastrar" prefHeight="44.0" prefWidth="535.0" promptText="Informe sua Senha" styleClass="campos-login">
             <VBox.margin>
                <Insets left="80.0" right="80.0" />
             </VBox.margin>
@@ -100,7 +100,7 @@
                <Font name="Gill Sans MT" size="16.0" />
             </font>
          </PasswordField>
-         <Label fx:id="senhaInvalida" onMouseClicked="#aoAcessarLogin" text="É necessario uma senha valida para continuar" textFill="#ffe100" visible="false">
+         <Label fx:id="senhaInvalida" onMouseClicked="#aoAcessarLogin" text="É necessario uma senha valida para continuar" textFill="RED" visible="false">
             <font>
                <Font name="Gill Sans MT Italic" size="16.0" />
             </font>
@@ -113,7 +113,7 @@
          <Insets bottom="-20.0" />
       </VBox.margin>
    </VBox>
-    <PasswordField fx:id="ConfirmaSenha" onAction="#aoConfirmarCadastro" prefHeight="44.0" prefWidth="460.0" promptText="Confirme sua senha" styleClass="campos-login">
+    <PasswordField fx:id="confirmaSenha" onAction="#aoConfirmarCadastro" prefHeight="44.0" prefWidth="460.0" promptText="Confirme sua senha" styleClass="campos-login">
         <VBox.margin>
             <Insets left="80.0" right="80.0" />
         </VBox.margin>

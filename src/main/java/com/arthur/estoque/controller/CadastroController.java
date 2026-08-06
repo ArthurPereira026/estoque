@@ -4,6 +4,7 @@ import com.arthur.estoque.model.Usuario;
 import com.arthur.estoque.model.UsuarioDAO;
 import com.arthur.estoque.util.GerenciadorTela;
 import javafx.event.ActionEvent;
+import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
@@ -63,9 +64,11 @@ public class CadastroController {
     }
 
     @FXML
-    protected void aoAcessarLogin(ActionEvent event) throws IOException {
+    protected void aoAcessarLogin(Event event) throws IOException {
         GerenciadorTela.getInstancia().TrocarTela(event, "login.fxml","Sistema Estoque - Login");
     }
+
+
 
 
 }
