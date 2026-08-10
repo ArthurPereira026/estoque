@@ -6,8 +6,7 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.VBox?>
 
-
-<VBox alignment="CENTER" prefHeight="300.0" prefWidth="400.0" style="-fx-border-radius: 20;" styleClass="fundo-login" stylesheets="@style.css" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.arthur.estoque.controller.SenhaController">
+<VBox alignment="CENTER" prefHeight="300.0" prefWidth="400.0" style="-fx-border-radius: 20;" styleClass="fundo-login" stylesheets="@style.css" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.arthur.estoque.controller.EnviarEmailController">
    <children>
       <Label styleClass="palavras" text="Recuperação de Senha" />
       <Label prefHeight="44.0" prefWidth="244.0" styleClass="palavras" text="Informe seu email para receber o codigo de verificação" wrapText="true">
@@ -15,17 +14,17 @@
             <Insets bottom="20.0" top="20.0" />
          </VBox.margin>
       </Label>
-      <TextField fx:id="emailRecuperacao" promptText="email de recuperação" styleClass="campos-login">
+      <TextField fx:id="emailRecuperacao" onAction="#aoValidarEmail" promptText="email de recuperação" styleClass="campos-login">
          <VBox.margin>
             <Insets left="20.0" right="20.0" />
          </VBox.margin>
       </TextField>
-      <Label prefHeight="34.0" prefWidth="221.0" styleClass="palavras" text="Email não cadastrado! Tente Novamente!" wrapText="true">
+      <Label fx:id="emailNaoCadastrado" prefHeight="34.0" prefWidth="221.0" styleClass="palavras" text="Email não cadastrado! Tente Novamente!" visible="false" wrapText="true">
          <VBox.margin>
             <Insets top="10.0" />
          </VBox.margin>
       </Label>
-      <Button fx:id="btnEmailValido" mnemonicParsing="false" onAction="#aoEmailValido" prefHeight="25.0" prefWidth="100.0" styleClass="botao-login" text="Enviar">
+      <Button fx:id="btnEmailValido" mnemonicParsing="false" onAction="#aoValidarEmail" prefHeight="25.0" prefWidth="100.0" styleClass="botao-login" text="Enviar">
          <VBox.margin>
             <Insets top="10.0" />
          </VBox.margin>

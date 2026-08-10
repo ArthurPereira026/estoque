@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox alignment="CENTER" prefHeight="300.0" prefWidth="400.0" style="-fx-border-radius: 20;" styleClass="fundo-login" stylesheets="@style.css" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.arthur.estoque.controller.SenhaController">
+<VBox alignment="CENTER" prefHeight="300.0" prefWidth="400.0" style="-fx-border-radius: 20;" styleClass="fundo-login" stylesheets="@style.css" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.arthur.estoque.controller.CodigoController">
    <children>
       <Label styleClass="titulo-campos-Recuperar-senha" text="Recuperação de Senha" textAlignment="CENTER">
          <VBox.margin>
@@ -18,12 +18,12 @@
          </font></Label>
       <Label fx:id="codigoRecebido" opacity="0.0" text="00000" />
       <Label prefHeight="44.0" prefWidth="312.0" styleClass="palavras" text="Informe o codigo de verificação recebido em seu email" wrapText="true" />
-      <TextField fx:id="codigoConfirmacao" alignment="CENTER" prefHeight="26.0" prefWidth="328.0" promptText="00000" styleClass="campos-login">
+      <TextField fx:id="codigoConfirmacao" alignment="CENTER" onAction="#aoCodigoCorreto" prefHeight="26.0" prefWidth="328.0" promptText="00000" styleClass="campos-login">
          <VBox.margin>
             <Insets left="150.0" right="150.0" top="15.0" />
          </VBox.margin>
       </TextField>
-      <Label fx:id="codigoIncorreto" prefHeight="34.0" prefWidth="277.0" styleClass="palavras" text="Email não cadastrado! Tente Novamente!" visible="false" wrapText="true">
+      <Label fx:id="codigoIncorreto" prefHeight="34.0" prefWidth="277.0" styleClass="palavras" text="codigo invalido prfv tente novamente" visible="false" wrapText="true">
          <VBox.margin>
             <Insets top="10.0" />
          </VBox.margin>
