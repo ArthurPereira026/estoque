@@ -14,7 +14,7 @@
             <Insets bottom="20.0" left="50.0" right="50.0" top="20.0" />
          </VBox.margin>
       </PasswordField>
-      <PasswordField fx:id="confirmaNovaSenha" layoutX="60.0" layoutY="119.0" promptText="Nova Senha">
+      <PasswordField fx:id="confirmaNovaSenha" layoutX="60.0" layoutY="119.0" onAction="#aoSenhaValida" promptText="Nova Senha">
          <VBox.margin>
             <Insets left="50.0" right="50.0" />
          </VBox.margin>

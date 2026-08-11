@@ -145,3 +145,12 @@ botão-cancelar-produtos:hover{
     -fx-text-fill: #DDA959;
 
 }
+/*código*/
+
+.codigo{
+    -fx-text-fill: transparent;
+
+}
+.codigo:hover{
+    -fx-text-fill: #DDA959;
+}
