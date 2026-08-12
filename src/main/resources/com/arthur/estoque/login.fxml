@@ -15,6 +15,8 @@
 <?import javafx.scene.text.TextFlow?>
 <?import org.kordamp.ikonli.javafx.FontIcon?>
 
+<?import javafx.scene.layout.StackPane?>
+<?import org.kordamp.ikonli.javafx.StackedFontIcon?>
 <VBox alignment="CENTER" prefHeight="450.0" prefWidth="700.0" spacing="20.0" style="-fx-border-color: #A58162; -fx-border-width: 5;" styleClass="fundo-login" stylesheets="@style.css" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.arthur.estoque.controller.LoginController">
     <padding>
         <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
@@ -84,14 +86,32 @@
             <Font name="Gill Sans MT" size="16.0" />
         </font>
     </TextField>
-    <PasswordField fx:id="senha" onAction="#aoApertarBotao" prefHeight="44.0" prefWidth="460.0" promptText="Informe sua senha" styleClass="campos-login">
+    <StackPane>
+        <children>
+            <PasswordField fx:id="senha" onAction="#aoApertarBotao" prefHeight="44.0" prefWidth="460.0" promptText="Informe sua senha" styleClass="campos-login">
+                <VBox.margin>
+                    <Insets bottom="-10.0" left="80.0" right="80.0" />
+                </VBox.margin>
+                <font>
+                    <Font name="Gill Sans MT" size="16.0" />
+                </font>
+            </PasswordField>
+            <TextField fx:id="senhaVisivel" minHeight="44.0" prefHeight="44.0" prefWidth="535.0" promptText="Informe sua senha" styleClass="campos-login" managed="false">
+                <font>
+                    <Font name="Gill Sans MT" size="16.0"/>
+                </font>
+            </TextField>
+            <FontIcon fx:id="iconeOlho" iconColor="darkgreen" iconLiteral="mdi2e-eye-off-outline" iconSize="25" onMouseClicked="#aoVerSenha" StackPane.alignment="CENTER_RIGHT">]
+                <StackPane.margin>
+                    <Insets right="10.0"/>
+                </StackPane.margin>
+            </FontIcon>
+        </children>
         <VBox.margin>
-            <Insets bottom="-10.0" left="80.0" right="80.0" />
+            <Insets left="80.0" right="80"/>
         </VBox.margin>
-        <font>
-            <Font name="Gill Sans MT" size="16.0" />
-        </font>
-    </PasswordField>
+    </StackPane>
+
     <TextFlow fx:id="erroDados" prefHeight="43.0" prefWidth="360.0" textAlignment="CENTER" translateY="-8.0" visible="false">
         <VBox.margin>
             <Insets left="50.0" right="50.0" />

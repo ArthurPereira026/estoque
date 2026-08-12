@@ -12,6 +12,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.text.TextFlow;
 import javafx.stage.Stage;
+import org.kordamp.ikonli.javafx.FontIcon;
 
 import java.io.IOException;
 import java.util.Locale;
@@ -19,17 +20,21 @@ import java.util.Map;
 import java.util.Optional;
 
 public class LoginController {
-    @FXML
-    private TextField usuario;
 
-    @FXML
-    private PasswordField senha;
+    @FXML private TextField usuario;
+    @FXML private PasswordField senha;
+    @FXML private TextFlow erroDados;
+    @FXML private TextField senhaVisivel;
+    @FXML private FontIcon iconeOlho;
 
-    @FXML
-    private TextFlow erroDados;
+    private boolean senhaVisivelAtiva = false;
 
    private final UsuarioDAO bdUsuario = UsuarioDAO.getInstance();
 
+   @FXML
+   public void initialize(){
+       senhaVisivel.textProperty().bindBidirectional(senha.textProperty());
+   }
 
 
     @FXML
@@ -55,6 +60,19 @@ public class LoginController {
         stage.setScene(scene);
         stage.setTitle("Sistema de Estoque - Esqueceu a senha");
         stage.show();
+    }
+
+    @FXML
+    protected void aoVerSenha(){
+       senhaVisivelAtiva = !senhaVisivelAtiva;
+
+       senha.setVisible(!senhaVisivelAtiva);
+       senha.setManaged(!senhaVisivelAtiva);
+
+       senhaVisivel.setVisible(senhaVisivelAtiva);
+       senhaVisivel.setManaged(senhaVisivelAtiva);
+
+       iconeOlho.setIconLiteral(senhaVisivelAtiva ? "mdi2e-eye-outline" : "mdi2e-eye-off-outline");
     }
 
     @FXML

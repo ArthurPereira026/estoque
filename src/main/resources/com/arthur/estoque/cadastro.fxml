@@ -105,7 +105,7 @@
                <Font name="Gill Sans MT Italic" size="16.0" />
             </font>
             <VBox.margin>
-               <Insets left="150.0" />
+               <Insets left="80.0" />
             </VBox.margin>
          </Label>
       </children>

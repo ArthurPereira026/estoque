@@ -2,6 +2,7 @@ package com.arthur.estoque.controller;
 
 import com.arthur.estoque.model.Usuario;
 import com.arthur.estoque.model.UsuarioDAO;
+import com.arthur.estoque.util.Constantes;
 import com.arthur.estoque.util.GerenciadorTela;
 import javafx.event.ActionEvent;
 import javafx.event.Event;
@@ -40,12 +41,17 @@ public class CadastroController {
     @FXML
     protected void aoConfirmarCadastro(ActionEvent event) throws IOException {
         String email = usuarioCadastrar.getText();
-        if (email.isBlank()){
+
+
+
+        if (email.isBlank() || !email.matches(Constantes.REXEX_EMAIL.getValor())){
             emailInvalido.setVisible(true);
             return;
         }
         String senha = senhaCadastrar.getText();
-        if (senha.isBlank()){
+
+        if (senha.isBlank() || !senha.matches(Constantes.REXEX_SENHA.getValor())){
+            senhaInvalida.setText("A senha necessita no minimo de uma letra minuscula e maiuscula e algum caracterer especial ");
             senhaInvalida.setVisible(true);
             return;
         }

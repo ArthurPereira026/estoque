@@ -1,6 +1,7 @@
 package com.arthur.estoque.controller;
 
 import com.arthur.estoque.service.RecuperacaoSenhaService;
+import com.arthur.estoque.util.Constantes;
 import javafx.fxml.FXML;
 import javafx.scene.ImageCursor;
 import javafx.scene.control.Alert;
@@ -23,14 +24,17 @@ public class NovaSenhaController {
 
     @FXML protected void aoSenhaValida(){
 
+
+
         String senhaNovaText = novaSenha.getText();
         String confirmacao = confirmaNovaSenha.getText();
 
-        if (senhaNovaText.isBlank()){
+        if (senhaNovaText.isBlank()|| !senhaNovaText.matches(Constantes.REXEX_SENHA.getValor())){
             senhaIncorreta.setText("As senhas n podem ficar em branco");
             return;
         }
         if (!senhaNovaText.equals(confirmacao)){
+            senhaIncorreta.setText("A senha necessita de no minimo uma letra minuscula e maiuscula, numero e caracter especial");
             senhaIncorreta.setVisible(true);
             return;
 
