@@ -3,6 +3,7 @@ package com.arthur.estoque.controller;
 import com.arthur.estoque.model.EstoqueDAO;
 import com.arthur.estoque.model.Produto;
 import com.arthur.estoque.util.GerenciadorTela;
+import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -11,32 +12,19 @@ import javafx.scene.control.cell.PropertyValueFactory;
 
 import java.io.IOException;
 import java.text.NumberFormat;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Locale;
 
 public class EstoqueController {
 
-
-
-    @FXML
-    private TextField campoBusca;
-
-    @FXML
-    private TableView tabelaProdutos;
-
-    @FXML
-    private TableColumn colunaID;
-
-    @FXML
-    private TableColumn colunaNome;
-
-    @FXML
-    private TableColumn colunaCategoria;
-
-    @FXML
-    private TableColumn colunaQuantidade;
-
-    @FXML
-    private TableColumn colunaPreco;
+    @FXML private TextField campoBusca;
+    @FXML private TableView tabelaProdutos;
+    @FXML private TableColumn colunaID;
+    @FXML private TableColumn colunaNome;
+    @FXML private TableColumn colunaCategoria;
+    @FXML private TableColumn colunaQuantidade;
+    @FXML private TableColumn colunaPreco;
 
     private final EstoqueDAO dadosEstoque = EstoqueDAO.getInstancia();
     private FilteredList<Produto> listaFiltrada;
@@ -44,6 +32,7 @@ public class EstoqueController {
     @FXML
     public void initialize(){
 
+        tabelaProdutos.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
         NumberFormat formatoMoeda = NumberFormat.getCurrencyInstance(new Locale("pt","BR"));
 
         colunaID.setCellValueFactory(new PropertyValueFactory<>("id"));
@@ -93,12 +82,21 @@ public class EstoqueController {
     @FXML
     protected void removerProduto(){
 
-        Produto produtoSelecionado =  (Produto) tabelaProdutos.getSelectionModel().getSelectedItem();
-        if (produtoSelecionado == null){
+        ObservableList produtoSelecionado =   tabelaProdutos.getSelectionModel().getSelectedItems();
+        if (produtoSelecionado.isEmpty()){
             mostrarAlerta("Selecione um produto do estoque para poder remover");
             return;
         }
-        Alert confirmacao = new Alert(Alert.AlertType.CONFIRMATION, "Remover o produto " +produtoSelecionado.getNome()+ " do estoque?? Esse ação ira excluir o produto  permanentemente do estoque atual!!");
+
+        List<Produto> listaProduto = new ArrayList<>(produtoSelecionado);
+        String produtosExcluidos = " ";
+        for (Produto p : listaProduto){
+            produtosExcluidos += p.getId() +" " + p.getNome()+"\n";
+        }
+
+
+
+        Alert confirmacao = new Alert(Alert.AlertType.CONFIRMATION, "Remover o produto \n" +produtosExcluidos + " \ndo estoque?? Esse ação ira excluir o produto  permanentemente do estoque atual!!");
         confirmacao.setHeaderText(null);
         ButtonType btnSim = new ButtonType("yes");
         ButtonType btnNao = new ButtonType("Não");
