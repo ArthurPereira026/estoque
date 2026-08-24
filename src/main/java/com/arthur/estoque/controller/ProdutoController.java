@@ -32,7 +32,7 @@ public class ProdutoController {
     private Button botaoCancelar;
 
 
-    private final EstoqueDAO dadosEstoque = EstoqueDAO.getInstancia();
+    private final EstoqueDAO dadosEstoque = new EstoqueDAO();
 
     private Produto produtoEmEdicao;
 

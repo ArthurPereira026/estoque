@@ -2,11 +2,17 @@ package com.arthur.estoque.model;
 
 public class Usuario {
 
+    private int id;
     private String email;
     private String senha;
 
     public Usuario(){}
 
+    public Usuario(int id, String email, String senha) {
+        this.id =  id;
+        this.email = email;
+        this.senha = senha;
+    }
     public Usuario(String email, String senha) {
         this.email = email;
         this.senha = senha;
@@ -26,5 +32,13 @@ public class Usuario {
 
     public void setSenha(String senha) {
         this.senha = senha;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 }

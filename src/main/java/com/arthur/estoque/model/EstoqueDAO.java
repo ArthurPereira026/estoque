@@ -1,33 +1,39 @@
 package com.arthur.estoque.model;
 
+import com.arthur.estoque.util.ConnectionDB;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import java.util.List;
 
 public class EstoqueDAO {
 
-    private static EstoqueDAO instancia;
+
     private final ObservableList<Produto> produtosList;
-    private int idproduto = 1;
 
-
-    private EstoqueDAO(){
+    public EstoqueDAO(){
         this.produtosList = FXCollections.observableArrayList();
     }
 
-
-
-    public static EstoqueDAO getInstancia(){
-        if (instancia == null){
-            instancia = new EstoqueDAO();
-        }
-        return instancia;
-    }
-
     public void adicionar(Produto produto){
-        produto.setId(idproduto++);/*pode ser idproduto++ pra adicionar +1*/
-        produtosList.add(produto);
+        String sqlInsert = " INSERT INTO produtos(nome, categoria, quantidade, preco) VALUES(?,?,?,?) ";
+        try(Connection con = ConnectionDB.abrirConexao(); PreparedStatement pstm = con.prepareStatement(sqlInsert)){
+
+            pstm.setString(1, produto.getNome());
+            pstm.setString(2, produto.getCategoria());
+            pstm.setInt(3, produto.getQuantidade());
+            pstm.setDouble(4, produto.getPreco());
+            pstm.execute();
+
+
+        } catch (SQLException ex){
+            System.err.println("Erro na conexão do Banco de Dados" + ex.getMessage());
+            ex.printStackTrace();
+        }
+
     }
 
     public ObservableList<Produto> listarProdutos(){

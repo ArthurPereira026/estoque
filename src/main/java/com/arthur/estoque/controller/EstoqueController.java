@@ -26,7 +26,7 @@ public class EstoqueController {
     @FXML private TableColumn colunaQuantidade;
     @FXML private TableColumn colunaPreco;
 
-    private final EstoqueDAO dadosEstoque = EstoqueDAO.getInstancia();
+    private final EstoqueDAO dadosEstoque = new EstoqueDAO();
     private FilteredList<Produto> listaFiltrada;
 
     @FXML
