@@ -1,27 +1,22 @@
 package com.arthur.estoque.model;
 
+import com.arthur.estoque.util.ConnectionDB;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import java.util.HashSet;
 import java.util.Optional;
 import java.util.Set;
 
 public class UsuarioDAO {
 
-    private static UsuarioDAO instancia;
 
     private Set<Usuario> bdUsuarios = new HashSet<>();
 
     public UsuarioDAO(){
 
         bdUsuarios = new HashSet<>();
-
-    }
-
-    public static UsuarioDAO getInstance(){
-
-        if ( instancia == null){
-            instancia = new UsuarioDAO();
-        }
-        return instancia;
 
     }
 
@@ -35,8 +30,16 @@ public class UsuarioDAO {
     }
 
     public void cadastrarUsuario(Usuario usuario){
+        String sqlInsert = "INSERT INTO usuarios (email, senha) VALUES (?,?)";
+        try (Connection con = ConnectionDB.abrirConexao();PreparedStatement psmt = con.prepareStatement(sqlInsert)){
+            psmt.setString(1, usuario.getEmail());
+            psmt.setString(2, usuario.getSenha());
+            psmt.execute();
 
-        bdUsuarios.add(usuario);
+        } catch (SQLException e) {
+            System.err.println("Erro na conexão do [BANCO DE DADOS]" + e.getMessage());
+            e.printStackTrace();
+        }
 
     }
 }

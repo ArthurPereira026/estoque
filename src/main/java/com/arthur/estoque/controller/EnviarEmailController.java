@@ -22,7 +22,7 @@ public class EnviarEmailController {
     @FXML private Label emailNaoCadastrado;
 
     private final RecuperacaoSenhaService service = new RecuperacaoSenhaService();
-    private final UsuarioDAO baseUsuario = UsuarioDAO.getInstance();
+    private final UsuarioDAO baseUsuario = new UsuarioDAO();
 
     @FXML protected void aoValidarEmail(ActionEvent event) throws IOException {
 

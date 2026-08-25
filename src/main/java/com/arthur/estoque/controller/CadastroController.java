@@ -35,7 +35,7 @@ public class CadastroController {
     @FXML
     private Label senhaInvalida;
 
-    private static UsuarioDAO dbUsuario = UsuarioDAO.getInstance();
+    private static UsuarioDAO dbUsuario = new UsuarioDAO();
 
 
     @FXML

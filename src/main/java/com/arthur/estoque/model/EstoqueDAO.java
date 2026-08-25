@@ -4,15 +4,14 @@ import com.arthur.estoque.util.ConnectionDB;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
+import java.sql.*;
+import java.util.ArrayList;
 import java.util.List;
 
 public class EstoqueDAO {
 
 
-    private final ObservableList<Produto> produtosList;
+    private ObservableList<Produto> produtosList;
 
     public EstoqueDAO(){
         this.produtosList = FXCollections.observableArrayList();
@@ -36,21 +35,68 @@ public class EstoqueDAO {
 
     }
 
-    public ObservableList<Produto> listarProdutos(){
-        return produtosList;
+    public List<Produto> listarProdutos() throws SQLException {
+
+        List<Produto> listaInterna = new ArrayList<>();
+        String sqlSelect = "SELECT * FROM produtos";
+        try(Connection con = ConnectionDB.abrirConexao();
+            Statement stm = con.createStatement();
+            ResultSet rs = stm.executeQuery(sqlSelect);){
+
+            while (rs.next()){
+                Produto produto = new Produto();
+                produto.setId(rs.getInt("id"));
+                produto.setNome(rs.getString("nome"));
+                produto.setCategoria(rs.getString("categoria"));
+                produto.setQuantidade(rs.getInt("quantidade"));
+                produto.setPreco(rs.getDouble("preco"));
+                listaInterna.add(produto);
+            }
+
+        }catch (SQLException e){
+            System.err.println("[BANCO DE DADOS] Erro ao executar select de produtos!" + e.getMessage());
+            e.printStackTrace();
+        }
+        return listaInterna;
     }
 
-    public void remover(List<Produto> listProduto){
+    public void remover(List<Produto> listProduto)  {
+        String sqlDelete = "DELETE FROM produtos WHERE id = ?";
+        try(Connection con = ConnectionDB.abrirConexao();PreparedStatement pstm = con.prepareStatement(sqlDelete)){
+            for (Produto produto : listProduto){
+                pstm.setInt(1, produto.getId());
+                pstm.addBatch();
+            }
+            pstm.executeBatch();
+        }catch (SQLException e){
+            System.err.println("[BANCO DE DADOS] Erro de dados ao deletar produtos" + e.getMessage());
+            e.printStackTrace();
+        }
         produtosList.removeAll(listProduto);
     }
 
-    public double calcularValorTotalEstoque(){
-        double valorTotalEstoque = produtosList.stream().mapToDouble(Produto::getValorTotal).sum();
-        return valorTotalEstoque;
+    public void updateProduto(Produto produto){
+        String sqlUpdate = "UPDATE produto SET nome=?, categoria=?, quantidade=?,preco=? WHERE id=?";
+        try (Connection con = ConnectionDB.abrirConexao();PreparedStatement pstm = con.prepareStatement(sqlUpdate)){
+            pstm.setString(1, produto.getNome());
+            pstm.setString(2, produto.getCategoria());
+            pstm.setInt(3, produto.getQuantidade());
+            pstm.setDouble(1, produto.getPreco());
+            pstm.setInt(1, produto.getId());
+            pstm.executeUpdate();
+
+        }catch (SQLException e){
+            System.err.println("[BANCO DE DADOS ERRO] Erro ao tentar atualizar um produto!"+ e.getMessage());
+        }
     }
 
-    public long calcularQuantidadeEstoqueBaixo(int limite){
-        return produtosList.stream().filter(p -> p.getQuantidade() < limite).count();
+
+    public double calcularValorTotalEstoque() throws SQLException {
+      return  listarProdutos().stream().mapToDouble(Produto::getValorTotal).sum();
+    }
+
+    public long calcularQuantidadeEstoqueBaixo(int limite) throws SQLException {
+        return listarProdutos().stream().filter(p -> p.getQuantidade() < limite).count();
     }
 
 

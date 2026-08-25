@@ -29,7 +29,7 @@ public class LoginController {
 
     private boolean senhaVisivelAtiva = false;
 
-   private final UsuarioDAO bdUsuario = UsuarioDAO.getInstance();
+   private final UsuarioDAO bdUsuario = new UsuarioDAO();
 
    @FXML
    public void initialize(){

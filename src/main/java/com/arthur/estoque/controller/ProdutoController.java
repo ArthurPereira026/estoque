@@ -74,8 +74,10 @@ public class ProdutoController {
             produtoEmEdicao.setCategoria(categoria);
             produtoEmEdicao.setQuantidade(quantidade);
             produtoEmEdicao.setPreco(preco);
+            dadosEstoque.updateProduto(produtoEmEdicao);
             mostrarSucesso(event, "Produto editado com sucesso!"
             );
+
         }
 
 

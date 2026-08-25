@@ -3,6 +3,7 @@ package com.arthur.estoque.controller;
 import com.arthur.estoque.model.EstoqueDAO;
 import com.arthur.estoque.model.Produto;
 import com.arthur.estoque.util.GerenciadorTela;
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
 import javafx.event.ActionEvent;
@@ -11,6 +12,7 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 
 import java.io.IOException;
+import java.sql.SQLException;
 import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.List;
@@ -28,9 +30,11 @@ public class EstoqueController {
 
     private final EstoqueDAO dadosEstoque = new EstoqueDAO();
     private FilteredList<Produto> listaFiltrada;
+    private final ObservableList<Produto> listaCompleta = FXCollections.observableArrayList();
+
 
     @FXML
-    public void initialize(){
+    public void initialize() throws SQLException {
 
         tabelaProdutos.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
         NumberFormat formatoMoeda = NumberFormat.getCurrencyInstance(new Locale("pt","BR"));
@@ -42,16 +46,25 @@ public class EstoqueController {
         colunaPreco.setCellValueFactory(new PropertyValueFactory<>("preco"));
 
 
-        listaFiltrada = new FilteredList<>( dadosEstoque.listarProdutos(), p -> true);
+        listaFiltrada = new FilteredList<>( listaCompleta, p -> true);
         tabelaProdutos.setItems(listaFiltrada);
+        atualizarTabela();
+
+        listaCompleta.setAll(dadosEstoque.listarProdutos());
 
         campoBusca.textProperty().addListener( (obs, textAntigo, textoNovo )->{
             String filtro = textoNovo == null ? "" : textoNovo.toLowerCase();
             listaFiltrada.setPredicate( produto -> filtro.isEmpty() || produto.getNome().toLowerCase().contains(filtro) || produto.getCategoria().toLowerCase().contains(filtro) || String.valueOf(produto.getPreco()).contains(filtro));
         });
 
+    }
 
-
+    private void atualizarTabela()  {
+        try {
+            listaCompleta.setAll(dadosEstoque.listarProdutos());
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
     @FXML
@@ -104,6 +117,7 @@ public class EstoqueController {
         confirmacao.showAndWait().ifPresent(botao ->{
             if (botao ==  btnSim){
                 dadosEstoque.remover(produtoSelecionado);
+                atualizarTabela();
             }
         });
 

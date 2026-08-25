@@ -8,6 +8,7 @@ import javafx.scene.control.Label;
 
 
 import java.io.IOException;
+import java.sql.SQLException;
 import java.text.NumberFormat;
 import java.util.Locale;
 
@@ -26,7 +27,7 @@ public class RelatorioController {
     private final EstoqueDAO dadosEstoque = new EstoqueDAO();
 
     @FXML
-    public void initializer(){
+    public void initialize() throws SQLException {
 
         NumberFormat formatoMoeda = NumberFormat.getCurrencyInstance(new Locale("pt","BR"));
 
