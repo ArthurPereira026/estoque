@@ -15,8 +15,6 @@ import javafx.stage.Stage;
 import org.kordamp.ikonli.javafx.FontIcon;
 
 import java.io.IOException;
-import java.util.Locale;
-import java.util.Map;
 import java.util.Optional;
 
 public class LoginController {
@@ -40,16 +38,16 @@ public class LoginController {
     @FXML
     protected void aoApertarBotao(ActionEvent event) throws IOException {
 
-        String usuarioDigitado = usuario.getText().toLowerCase();
+        String emailDigitado = usuario.getText().toLowerCase();
         String senhaDigitada = senha.getText();
+        boolean loginValido = bdUsuario.validarLogin(emailDigitado, senhaDigitada);
 
-        Optional<Usuario> usuarioEncontrado = bdUsuario.buscarPorEmail(usuarioDigitado);
-
-        if (usuarioEncontrado.isPresent() && usuarioEncontrado.get().getSenha().equals(senhaDigitada)){
-            GerenciadorTela.getInstancia().TrocarTela(event, "menu.fxml", "Sistema Estoque - Login");
-        } else {
+        if (loginValido){
+            GerenciadorTela.getInstancia().TrocarTela(event, "menu.fxml", "Sistema estoque - Menu");
+        }else{
             erroDados.setVisible(true);
         }
+
     }
 
     @FXML

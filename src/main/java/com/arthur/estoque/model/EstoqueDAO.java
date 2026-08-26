@@ -76,13 +76,13 @@ public class EstoqueDAO {
     }
 
     public void updateProduto(Produto produto){
-        String sqlUpdate = "UPDATE produto SET nome=?, categoria=?, quantidade=?,preco=? WHERE id=?";
+        String sqlUpdate = "UPDATE produtos SET nome=?, categoria=?, quantidade=?,preco=? WHERE id=?";
         try (Connection con = ConnectionDB.abrirConexao();PreparedStatement pstm = con.prepareStatement(sqlUpdate)){
             pstm.setString(1, produto.getNome());
             pstm.setString(2, produto.getCategoria());
             pstm.setInt(3, produto.getQuantidade());
-            pstm.setDouble(1, produto.getPreco());
-            pstm.setInt(1, produto.getId());
+            pstm.setDouble(4, produto.getPreco());
+            pstm.setInt(5, produto.getId());
             pstm.executeUpdate();
 
         }catch (SQLException e){
