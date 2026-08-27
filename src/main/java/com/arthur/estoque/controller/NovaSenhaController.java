@@ -33,13 +33,24 @@ public class NovaSenhaController {
             senhaIncorreta.setText("As senhas n podem ficar em branco");
             return;
         }
+
+
         if (!senhaNovaText.equals(confirmacao)){
             senhaIncorreta.setText("A senha necessita de no minimo uma letra minuscula e maiuscula, numero e caracter especial");
             senhaIncorreta.setVisible(true);
             return;
 
         }
+
+        boolean senhaIgual = service.verificarSenhaAntiga(senhaNovaText);
+        if (senhaIgual){
+            senhaIncorreta.setText("A Senha não pode ser igual a antiga");
+            senhaIncorreta.setVisible(true);
+            return;
+        }
+
         service.redefinirSenha(senhaNovaText);
+
         mostrarAlerta("Senha alterada com sucesso");
         ((Stage) novaSenha.getScene().getWindow()).close();
 

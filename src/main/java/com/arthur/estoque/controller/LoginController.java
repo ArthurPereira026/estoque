@@ -10,6 +10,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.text.Text;
 import javafx.scene.text.TextFlow;
 import javafx.stage.Stage;
 import org.kordamp.ikonli.javafx.FontIcon;
@@ -42,11 +43,13 @@ public class LoginController {
         String senhaDigitada = senha.getText();
         boolean loginValido = bdUsuario.validarLogin(emailDigitado, senhaDigitada);
 
+
         if (loginValido){
             GerenciadorTela.getInstancia().TrocarTela(event, "menu.fxml", "Sistema estoque - Menu");
         }else{
             erroDados.setVisible(true);
         }
+
 
     }
 
@@ -78,4 +81,5 @@ public class LoginController {
 
         GerenciadorTela.getInstancia().TrocarTela(event,"cadastro.fxml", "Sistema Estoque - Novo Usuário");
     }
+
 }

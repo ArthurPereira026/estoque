@@ -19,7 +19,7 @@
             <Insets left="50.0" right="50.0" />
          </VBox.margin>
       </PasswordField>
-      <Label fx:id="senhaIncorreta" prefHeight="34.0" prefWidth="177.0" styleClass="palavras" text="As senhas n se coencidem!" visible="false" wrapText="true">
+      <Label fx:id="senhaIncorreta" alignment="CENTER" minWidth="350.0" prefHeight="34.0" prefWidth="177.0" styleClass="palavras" text="As senhas n se coencidem!" visible="false" wrapText="true">
          <VBox.margin>
             <Insets top="10.0" />
          </VBox.margin>

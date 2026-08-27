@@ -126,7 +126,7 @@
             <Insets left="50.0" right="50.0" />
         </VBox.margin>
         <children>
-            <Text fill="RED" strokeType="OUTSIDE" strokeWidth="0.0" text="As senhas não se coincidem" textAlignment="CENTER">
+            <Text fx:id="erroDados" fill="RED" strokeType="OUTSIDE" strokeWidth="0.0" text="Esse email ja foi cadastrado" textAlignment="CENTER">
                 <font>
                     <Font name="Comic Sans MS Italic" size="14.0" />
                 </font>

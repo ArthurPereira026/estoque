@@ -22,13 +22,13 @@ public class EnviarEmailController {
     @FXML private Label emailNaoCadastrado;
 
     private final RecuperacaoSenhaService service = new RecuperacaoSenhaService();
-    private final UsuarioDAO baseUsuario = new UsuarioDAO();
+
 
     @FXML protected void aoValidarEmail(ActionEvent event) throws IOException {
 
         String email = emailRecuperacao.getText().trim();
 
-        String codigo = service.solicitarRecuperacao(email,baseUsuario);
+        String codigo = service.solicitarRecuperacao(email);
         if (codigo == null){
             emailNaoCadastrado.setVisible(true);
             return;
