@@ -10,30 +10,22 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.text.Text;
 import javafx.scene.text.TextFlow;
 
 import java.io.IOException;
+import java.util.Optional;
 
 
 public class CadastroController {
 
-    @FXML
-    private TextField usuarioCadastrar;
-
-    @FXML
-    private PasswordField senhaCadastrar;
-
-    @FXML
-    private PasswordField confirmaSenha;
-
-    @FXML
-    private TextFlow erroSenha;
-
-    @FXML
-    private Label emailInvalido;
-
-    @FXML
-    private Label senhaInvalida;
+    @FXML private TextField usuarioCadastrar;
+    @FXML private PasswordField senhaCadastrar;
+    @FXML private PasswordField confirmaSenha;
+    @FXML private TextFlow erroSenha;
+    @FXML private Label emailInvalido;
+    @FXML private Label senhaInvalida;
+    @FXML private Text erroDados;
 
     private static UsuarioDAO dbUsuario = new UsuarioDAO();
 
@@ -43,6 +35,10 @@ public class CadastroController {
         String email = usuarioCadastrar.getText();
 
 
+        usuarioCadastrar.setVisible(false);
+        senhaCadastrar.setVisible(false);
+        senhaInvalida.setVisible(false);
+        erroSenha.setVisible(false);
 
         if (email.isBlank() || !email.matches(Constantes.REXEX_EMAIL.getValor())){
             emailInvalido.setVisible(true);
@@ -63,6 +59,13 @@ public class CadastroController {
         }
 
         Usuario novoUsuario = new Usuario(email,senha);
+        var usuarioJaCadastrado = dbUsuario.buscarPorEmail(email);
+
+        if (usuarioJaCadastrado.isPresent()){
+            erroDados.setText("Esse usuario ja ta cadastrado");
+            erroSenha.setVisible(true);
+            return;
+        }
         dbUsuario.cadastrarUsuario(novoUsuario);
 
         GerenciadorTela.getInstancia().TrocarTela(event, "login.fxml","Sistema Estoque - Login");

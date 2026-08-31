@@ -52,7 +52,7 @@ public class RecuperacaoSenhaService {
             return false;
         }
 
-        String hashSenha = BCrypt.hashpw(novaSenha, BCrypt.gensalt());
+
         return BCrypt.checkpw(novaSenha, usuarioAlvo.getSenha());
     }
 

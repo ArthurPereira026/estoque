@@ -7,6 +7,7 @@ import javafx.scene.text.TextFlow;
 import org.mindrot.jbcrypt.BCrypt;
 
 import java.sql.*;
+import java.text.CollationKey;
 import java.util.HashSet;
 import java.util.Optional;
 import java.util.Set;
@@ -32,6 +33,7 @@ public class UsuarioDAO {
 
             psmt.setString(1, usuario.getEmail());
             psmt.setString(2, hashSenha);
+
             psmt.execute();
             return true;
 
@@ -91,5 +93,7 @@ public class UsuarioDAO {
         }
 
     }
+
+
 
 }
