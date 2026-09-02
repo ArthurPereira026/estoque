@@ -22,7 +22,7 @@ public class EstoqueController {
 
     @FXML private TextField campoBusca;
     @FXML private TableView tabelaProdutos;
-    @FXML private TableColumn colunaID;
+
     @FXML private TableColumn colunaNome;
     @FXML private TableColumn colunaCategoria;
     @FXML private TableColumn colunaQuantidade;
@@ -39,7 +39,7 @@ public class EstoqueController {
         tabelaProdutos.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
         NumberFormat formatoMoeda = NumberFormat.getCurrencyInstance(new Locale("pt","BR"));
 
-        colunaID.setCellValueFactory(new PropertyValueFactory<>("id"));
+
         colunaNome.setCellValueFactory(new PropertyValueFactory<>("nome"));
         colunaCategoria.setCellValueFactory(new PropertyValueFactory<>("categoria"));
         colunaQuantidade.setCellValueFactory(new PropertyValueFactory<>("quantidade"));

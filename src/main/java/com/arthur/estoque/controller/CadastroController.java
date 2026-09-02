@@ -35,10 +35,10 @@ public class CadastroController {
         String email = usuarioCadastrar.getText();
 
 
-        usuarioCadastrar.setVisible(false);
-        senhaCadastrar.setVisible(false);
+        emailInvalido.setVisible(false);
         senhaInvalida.setVisible(false);
         erroSenha.setVisible(false);
+        erroDados.setVisible(false);
 
         if (email.isBlank() || !email.matches(Constantes.REXEX_EMAIL.getValor())){
             emailInvalido.setVisible(true);
@@ -47,13 +47,14 @@ public class CadastroController {
         String senha = senhaCadastrar.getText();
 
         if (senha.isBlank() || !senha.matches(Constantes.REXEX_SENHA.getValor())){
-            senhaInvalida.setText("A senha necessita no minimo de uma letra minuscula e maiuscula e algum caracterer especial ");
+            senhaInvalida.setText("Senha Fraca ");
             senhaInvalida.setVisible(true);
             return;
         }
 
         String senhaConfirmacao = confirmaSenha.getText();
         if (!senhaConfirmacao.equals(senha)){
+            erroDados.setText("As Senhas n se coencidem");
             erroSenha.setVisible(true);
             return;
         }

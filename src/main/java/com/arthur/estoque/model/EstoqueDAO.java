@@ -19,7 +19,9 @@ public class EstoqueDAO {
 
     public void adicionar(Produto produto){
         String sqlInsert = " INSERT INTO produtos(nome, categoria, quantidade, preco) VALUES(?,?,?,?) ";
+
         try(Connection con = ConnectionDB.abrirConexao(); PreparedStatement pstm = con.prepareStatement(sqlInsert)){
+
 
             pstm.setString(1, produto.getNome());
             pstm.setString(2, produto.getCategoria());

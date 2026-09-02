@@ -10,6 +10,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 
 import java.io.IOException;
+import java.sql.SQLException;
+import java.util.List;
 
 public class ProdutoController {
 
@@ -47,7 +49,7 @@ public class ProdutoController {
     }
 
     @FXML
-    protected void salvar(ActionEvent event) throws IOException{
+    protected void salvar(ActionEvent event) throws IOException, SQLException {
         String nome = campoNome.getText();
         String categoria = campoCategoria.getText();
         if (nome == null || nome.isBlank() || categoria == null || categoria.isBlank()){
@@ -58,6 +60,7 @@ public class ProdutoController {
         int quantidade ;
         double preco;
 
+
         try{
             quantidade = Integer.parseInt(campoQuantidade.getText().trim());
             preco = Double.parseDouble(campoPreco.getText().trim().replace(",", "."));
@@ -65,6 +68,13 @@ public class ProdutoController {
             mostrarErro("Quantidade e preço precisam ser números validos!");
             return;
         }
+
+        List<Produto> listaDeProdutosCadastrados = dadosEstoque.listarProdutos();
+        if ( listaDeProdutosCadastrados.stream().filter(produto -> produto.getNome().equals(nome)).findFirst().isPresent()){
+           mostrarErro("Esse produto ja existe no estoque");
+           return;
+        }
+
         if (produtoEmEdicao == null){
             Produto produto = new Produto(0, nome,categoria,quantidade,preco);
             dadosEstoque.adicionar(produto);
